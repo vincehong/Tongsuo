@@ -7,7 +7,6 @@
 
 name: Fuzz-checker CI
 
-
 on: [push]
 
 jobs:
@@ -45,12 +44,12 @@ jobs:
         sudo apt-get update
         sudo apt-get -yq  install ${{ matrix.fuzzy.install }}
     - name: Add LLVM apt repository and install clang-12
-    run: |
-      sudo apt-get install -y wget lsb-release gnupg software-properties-common
-      wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-      sudo add-apt-repository "deb http://apt.llvm.org/$(lsb_release -cs)/ llvm-toolchain-$(lsb_release -cs)-12 main"
-      sudo apt-get update
-      sudo apt-get install -y clang-12
+      run: |
+        sudo apt-get install -y wget lsb-release gnupg software-properties-common
+        wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+        sudo add-apt-repository "deb http://apt.llvm.org/$(lsb_release -cs)/ llvm-toolchain-$(lsb_release -cs)-12 main"
+        sudo apt-get update
+        sudo apt-get install -y clang-12
     - name: Adjust ASLR for sanitizer
       run: |
         sudo cat /proc/sys/vm/mmap_rnd_bits
