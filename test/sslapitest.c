@@ -7553,8 +7553,8 @@ static int tick_key_cb(SSL *s, unsigned char key_name[16],
                        unsigned char iv[EVP_MAX_IV_LENGTH], EVP_CIPHER_CTX *ctx,
                        HMAC_CTX *hctx, int enc)
 {
-    const unsigned char tick_aes_key[16] = "0123456789abcdef";
-    const unsigned char tick_hmac_key[16] = "0123456789abcdef";
+    const unsigned char tick_aes_key[16] = { '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' };
+    const unsigned char tick_hmac_key[16] = { '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' };
     EVP_CIPHER *aes128cbc = EVP_CIPHER_fetch(libctx, "AES-128-CBC", NULL);
     EVP_MD *sha256 = EVP_MD_fetch(libctx, "SHA-256", NULL);
     int ret;
@@ -7582,8 +7582,8 @@ static int tick_key_evp_cb(SSL *s, unsigned char key_name[16],
                            unsigned char iv[EVP_MAX_IV_LENGTH],
                            EVP_CIPHER_CTX *ctx, EVP_MAC_CTX *hctx, int enc)
 {
-    const unsigned char tick_aes_key[16] = "0123456789abcdef";
-    unsigned char tick_hmac_key[16] = "0123456789abcdef";
+    const unsigned char tick_aes_key[16] = { '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' };
+    unsigned char tick_hmac_key[16] = { '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' };
     OSSL_PARAM params[2];
     EVP_CIPHER *aes128cbc = EVP_CIPHER_fetch(libctx, "AES-128-CBC", NULL);
     int ret;
