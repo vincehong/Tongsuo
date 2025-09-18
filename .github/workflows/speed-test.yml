@@ -10,7 +10,9 @@ on:
 
 jobs:
   test:
-    if: ${{ github.event.pull_request.merged || github.event.schedule == '0 0 * * *'  }}
+  jobs:
+  test:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged || github.event.schedule == '0 0 * * *' }}
     runs-on: [self-hosted,X64]
     env:
       MYSQL_ARG: "--mysql-host=${{ secrets.MYSQL_HOST }} --mysql-user=${{ secrets.MYSQL_USER }} --mysql-password=${{ secrets.MYSQL_PASSWORD }} --mysql-db=${{ secrets.MYSQL_DB }}"
