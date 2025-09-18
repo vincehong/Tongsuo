@@ -141,21 +141,6 @@ jobs:
             echo "date: $now" >> $FILE
             LD_LIBRARY_PATH=. ./apps/openssl speed $algo | tee -a $FILE
           done
-      - name: phe speed test
-        shell: bash
-        run: |
-          commit=`git rev-parse HEAD`
-          algo_type="phe"
-          algos=(ecelgamalp256 ecelgamalsm2 paillier)
-          for algo in ${algos[@]}
-          do
-            mkdir -p speed/$algo_type/$algo
-            now=`date +"%F %T"`
-            FILE="./speed/$algo_type/$algo/$NOW.txt"
-            echo "commit: $commit" >> $FILE
-            echo "date: $now" >> $FILE
-            LD_LIBRARY_PATH=. ./apps/openssl speed $algo | tee -a $FILE
-          done
       - name: switch to the speed-auto-test branch and commit speed test result file
         run: |
           make clean
