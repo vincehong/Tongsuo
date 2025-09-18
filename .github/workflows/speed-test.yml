@@ -26,7 +26,7 @@ jobs:
           shell: bash
           command: git fetch --depth=1
       - name: config
-        run: ./config --strict-warnings enable-ec_elgamal enable-paillier enable-zuc enable-ntls enable-sm2 enable-sm3 enable-sm4 enable-fips --api=1.1.1 && perl configdata.pm --dump
+        run: ./config --strict-warnings enable-zuc enable-ntls enable-sm2 enable-sm3 enable-sm4 enable-fips --api=1.1.1 && perl configdata.pm --dump
       - name: make
         run: make -j4
       - name: Set current date as env variable
@@ -106,21 +106,6 @@ jobs:
           commit=`git rev-parse HEAD`
           algo_type="key_exchange"
           algos=(ecdhp256 ecdhp384 ecdhp521 ecdhx448 ecdhx25519)
-          for algo in ${algos[@]}
-          do
-            mkdir -p speed/$algo_type/$algo
-            now=`date +"%F %T"`
-            FILE="./speed/$algo_type/$algo/$NOW.txt"
-            echo "commit: $commit" >> $FILE
-            echo "date: $now" >> $FILE
-            LD_LIBRARY_PATH=. ./apps/openssl speed $algo | tee -a $FILE
-          done
-      - name: phe speed test
-        shell: bash
-        run: |
-          commit=`git rev-parse HEAD`
-          algo_type="phe"
-          algos=(ecelgamalp256 ecelgamalsm2 paillier)
           for algo in ${algos[@]}
           do
             mkdir -p speed/$algo_type/$algo
