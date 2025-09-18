@@ -10,8 +10,6 @@ on:
 
 jobs:
   test:
-  jobs:
-  test:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged || github.event.schedule == '0 0 * * *' }}
     runs-on: [self-hosted,X64]
     env:
