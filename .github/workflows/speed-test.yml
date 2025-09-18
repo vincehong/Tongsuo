@@ -11,7 +11,7 @@ on:
 jobs:
   test:
     if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged || github.event.schedule == '0 0 * * *' }}
-    runs-on: [self-hosted,X64]
+    runs-on: ubuntu-latest
     env:
       MYSQL_ARG: "--mysql-host=${{ secrets.MYSQL_HOST }} --mysql-user=${{ secrets.MYSQL_USER }} --mysql-password=${{ secrets.MYSQL_PASSWORD }} --mysql-db=${{ secrets.MYSQL_DB }}"
     steps:
