@@ -1,0 +1,10 @@
+commit: 10dd5247cf8f052029d45779f322dc5799c48ece
+date: 2025-11-28 01:01:15
+version: 3.0.3
+built on: Fri Nov 28 00:59:15 2025 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -DPEDANTIC -pedantic -Wno-long-long -DUNUSEDRESULT_DEBUG -Wall -Wmissing-declarations -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wswitch -Wsign-compare -Wshadow -Wformat -Wno-type-limits -Wundef -Werror -Wmissing-prototypes -Wstrict-prototypes -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG 
+CPUINFO: OPENSSL_ia32cap=0xfeda3203078bffff:0x400684219c07a9
+The 'numbers' are in 1000s of bytes per second processed.
+type             16 bytes     64 bytes    256 bytes   1024 bytes   8192 bytes  16384 bytes
+AES-256-CCM      48791.72k   169155.16k   426437.21k   691525.97k   844614.31k   858183.00k
