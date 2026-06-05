@@ -1,0 +1,9 @@
+commit: 10dd5247cf8f052029d45779f322dc5799c48ece
+date: 2026-06-05 02:43:39
+version: 3.0.3
+built on: Fri Jun  5 02:37:59 2026 UTC
+options: bn(64,64)
+compiler: gcc -fPIC -pthread -m64 -Wa,--noexecstack -Wall -O3 -DPEDANTIC -pedantic -Wno-long-long -DUNUSEDRESULT_DEBUG -Wall -Wmissing-declarations -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -Wswitch -Wsign-compare -Wshadow -Wformat -Wno-type-limits -Wundef -Werror -Wmissing-prototypes -Wstrict-prototypes -DOPENSSL_USE_NODELETE -DL_ENDIAN -DOPENSSL_PIC -DOPENSSL_BUILDING_OPENSSL -DNDEBUG 
+CPUINFO: OPENSSL_ia32cap=0xfeda3203078bffff:0x400684219c07a9
+                              sign    verify    sign/s verify/s
+ 256 bits SM2 (CurveSM2)   0.0004s   0.0003s   2720.0   3114.3
